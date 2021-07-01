@@ -1,22 +1,21 @@
 class Solution {
-    public boolean isPalindrome(int x) {
+    public boolean isPalindrome(int org_number) {
         
-        if(x<0){
+        if(org_number<0){
             return false;
         }
         
-        int temp =x,val=0;
+        int temp_num=org_number,reverse_num=0;
         
-        while(temp>0){
-            val=val*10+temp%10;
-            temp=temp/10;
+        while(temp_num>0){
+            reverse_num=reverse_num*10+temp_num%10;
+            temp_num=temp_num/10;
         }
-        if(val==x){
+        if(reverse_num==org_number){
             return true;
         }
         else{
             return false;
-        }
-        
+        }  
     }
 }
