@@ -6,7 +6,7 @@ class Solution {
         
         int firstElement = nums[0];
         int i = nums.length-1;
-        
+        int incidentElm =0;
         if(firstElement<nums[i]){
             
             return firstElement;
@@ -19,6 +19,7 @@ class Solution {
        while(true){
                   
             if(nums[i]<firstElement){   
+                incidentElm=nums[i];
                 i--;  
             }
             
@@ -28,7 +29,7 @@ class Solution {
            
         }
         
-        return nums[i+1];
+        return incidentElm;
         
     }
 }
