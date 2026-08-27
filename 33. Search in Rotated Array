@@ -1,0 +1,40 @@
+class Solution {
+
+    public int bSearch(int[] nums, int l, int r, int target){
+        if(r<l){
+            return -1;
+        }
+
+        int mid = (l+r)/2;
+        
+        if(target ==nums[mid]){
+            return mid;
+        }
+
+         //left sorted array
+        if(nums[l]<=nums[mid]){
+              if(target<nums[l] || target>nums[mid]){
+                l =mid+1;
+                return bSearch(nums,l,r,target);
+
+              }else{
+                 r=mid-1;
+                 return bSearch(nums,l,r,target);
+              }
+              
+        }else{
+            if(target>nums[r] || target<nums[mid]){
+                r = mid-1;
+                return bSearch(nums,l,r,target);
+            }else{
+                l=mid+1;
+                 return bSearch(nums,l,r,target);
+            }
+        }
+
+    }
+    public int search(int[] nums, int target) {
+        return bSearch(nums,0,nums.length-1,target);
+
+    }
+}
